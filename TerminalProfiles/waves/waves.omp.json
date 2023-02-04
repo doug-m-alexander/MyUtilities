@@ -1,0 +1,55 @@
+{
+  "final_space": true,
+  "version": 2,
+  "cycle": [
+    {
+      "background": "red",
+      "foreground": "black"
+    },
+    {
+      "background": "green",
+      "foreground": "black"
+    },
+    {
+      "background": "blue",
+      "foreground": "black"
+    }
+  ],
+  "blocks": [
+    {
+      "alignment": "left",
+      "segments": [
+        {
+          "properties": {
+            "time_format": "15:04"
+          },
+          "template": " {{ .CurrentDate | date .Format }} ",
+          "type": "time"
+        },
+        {
+          "template": " {{ .UserName }} ",
+          "type": "session"
+        },
+        {
+          "properties": {
+            "branch_icon": " "
+          },
+          "style": "plain",
+          "template": " {{ .HEAD }} ",
+          "type": "git"
+        },
+        {
+          "trailing_diamond": "",
+          "style": "diamond",
+          "invert_diamond": false,
+          "properties": {
+            "style": "folder"
+          },
+          "template": " {{.Path }}",
+          "type": "path"
+        }
+      ],
+      "type": "prompt"
+    }
+  ]
+}

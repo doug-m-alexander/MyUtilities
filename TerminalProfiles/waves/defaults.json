@@ -1,5 +1,15 @@
 
 {
     "backgroundImage": "path-to/michael_shillingburg_134780307923_background_waves_large_doubled.gif",
-    "backgroundImageOpacity": 0.16
+    "backgroundImageOpacity": 0.16,
+    "colorScheme": "Campbell Powershell",
+    "cursorShape": "doubleUnderscore",
+    "font": 
+    {
+        "face": "GoMono NFM",
+        "size": 16
+    },
+    "intenseTextStyle": "none",
+    "padding": "0",
+    "scrollbarState": "visible"
 }

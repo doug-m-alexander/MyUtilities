@@ -1,13 +1,6 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
 final_space: true
 version: 2
-cycle:
-- background: red
-  foreground: black
-- background: green
-  foreground: black
-- background: blue
-  foreground: black
 blocks:
 - alignment: left
   segments:
@@ -15,18 +8,82 @@ blocks:
       time_format: '15:04'
     template: " {{ .CurrentDate | date .Format }} "
     type: time
+    foreground_templates: 
+    - '{{if not (mod ( add (now | unixEpoch ) -0 ) 7 ) }}#E74C3C{{end}}'
+    - '{{if not (mod ( add (now | unixEpoch ) -1 ) 7 ) }}#8e44ad{{end}}'
+    - '{{if not (mod ( add (now | unixEpoch ) -2 ) 7 ) }}#3498db{{end}}'
+    - '{{if not (mod ( add (now | unixEpoch ) -3 ) 7 ) }}#1abc9c{{end}}'
+    - '{{if not (mod ( add (now | unixEpoch ) -4 ) 7 ) }}#2ecc71{{end}}'
+    - '{{if not (mod ( add (now | unixEpoch ) -5 ) 7 ) }}#f1c40f{{end}}'
+    - '{{if not (mod ( add (now | unixEpoch ) -6 ) 7 ) }}#d35400{{end}}'
+    background_templates: 
+    - '{{if not (mod ( add (now | unixEpoch ) -0 ) 7 ) }}#2ecc71{{end}}'
+    - '{{if not (mod ( add (now | unixEpoch ) -1 ) 7 ) }}#1abc9c{{end}}'
+    - '{{if not (mod ( add (now | unixEpoch ) -2 ) 7 ) }}#8e44ad{{end}}'
+    - '{{if not (mod ( add (now | unixEpoch ) -3 ) 7 ) }}#d35400{{end}}'
+    - '{{if not (mod ( add (now | unixEpoch ) -4 ) 7 ) }}#3498db{{end}}'
+    - '{{if not (mod ( add (now | unixEpoch ) -5 ) 7 ) }}#E74C3C{{end}}'
+    - '{{if not (mod ( add (now | unixEpoch ) -6 ) 7 ) }}#f1c40f{{end}}'
   - template: " {{ .UserName }} "
     type: session
-  - properties:
+    foreground_templates: 
+    - '{{if not (mod ( add (now | unixEpoch ) -1 ) 7 ) }}#E74C3C{{end}}'
+    - '{{if not (mod ( add (now | unixEpoch ) -2 ) 7 ) }}#8e44ad{{end}}'
+    - '{{if not (mod ( add (now | unixEpoch ) -3 ) 7 ) }}#3498db{{end}}'
+    - '{{if not (mod ( add (now | unixEpoch ) -4 ) 7 ) }}#1abc9c{{end}}'
+    - '{{if not (mod ( add (now | unixEpoch ) -5 ) 7 ) }}#2ecc71{{end}}'
+    - '{{if not (mod ( add (now | unixEpoch ) -6 ) 7 ) }}#f1c40f{{end}}'
+    - '{{if not (mod ( add (now | unixEpoch ) -0 ) 7 ) }}#d35400{{end}}'
+    background_templates: 
+    - '{{if not (mod ( add (now | unixEpoch ) -1 ) 7 ) }}#2ecc71{{end}}'
+    - '{{if not (mod ( add (now | unixEpoch ) -2 ) 7 ) }}#1abc9c{{end}}'
+    - '{{if not (mod ( add (now | unixEpoch ) -3 ) 7 ) }}#8e44ad{{end}}'
+    - '{{if not (mod ( add (now | unixEpoch ) -4 ) 7 ) }}#d35400{{end}}'
+    - '{{if not (mod ( add (now | unixEpoch ) -5 ) 7 ) }}#3498db{{end}}'
+    - '{{if not (mod ( add (now | unixEpoch ) -6 ) 7 ) }}#E74C3C{{end}}'
+    - '{{if not (mod ( add (now | unixEpoch ) -0 ) 7 ) }}#f1c40f{{end}}'
+  - template: " {{ .HEAD }} "
+    properties:
       branch_icon: ' '
     style: plain
-    template: " {{ .HEAD }} "
     type: git
-  - trailing_diamond: "\ue0b4"
+    foreground_templates: 
+    - '{{if not (mod ( add (now | unixEpoch ) -2 ) 7 ) }}#E74C3C{{end}}'
+    - '{{if not (mod ( add (now | unixEpoch ) -3 ) 7 ) }}#8e44ad{{end}}'
+    - '{{if not (mod ( add (now | unixEpoch ) -4 ) 7 ) }}#3498db{{end}}'
+    - '{{if not (mod ( add (now | unixEpoch ) -5 ) 7 ) }}#1abc9c{{end}}'
+    - '{{if not (mod ( add (now | unixEpoch ) -6 ) 7 ) }}#2ecc71{{end}}'
+    - '{{if not (mod ( add (now | unixEpoch ) -0 ) 7 ) }}#f1c40f{{end}}'
+    - '{{if not (mod ( add (now | unixEpoch ) -1 ) 7 ) }}#d35400{{end}}'
+    background_templates: 
+    - '{{if not (mod ( add (now | unixEpoch ) -2 ) 7 ) }}#2ecc71{{end}}'
+    - '{{if not (mod ( add (now | unixEpoch ) -3 ) 7 ) }}#1abc9c{{end}}'
+    - '{{if not (mod ( add (now | unixEpoch ) -4 ) 7 ) }}#8e44ad{{end}}'
+    - '{{if not (mod ( add (now | unixEpoch ) -5 ) 7 ) }}#d35400{{end}}'
+    - '{{if not (mod ( add (now | unixEpoch ) -6 ) 7 ) }}#3498db{{end}}'
+    - '{{if not (mod ( add (now | unixEpoch ) -0 ) 7 ) }}#E74C3C{{end}}'
+    - '{{if not (mod ( add (now | unixEpoch ) -1 ) 7 ) }}#f1c40f{{end}}'
+  - template: " {{.Path }}"
+    trailing_diamond: "\ue0b4"
     style: diamond
     invert_diamond: false
     properties:
       style: folder
-    template: " {{.Path }}"
     type: path
+    foreground_templates: 
+    - '{{if not (mod ( add (now | unixEpoch ) -3 ) 7 ) }}#E74C3C{{end}}'
+    - '{{if not (mod ( add (now | unixEpoch ) -4 ) 7 ) }}#8e44ad{{end}}'
+    - '{{if not (mod ( add (now | unixEpoch ) -5 ) 7 ) }}#3498db{{end}}'
+    - '{{if not (mod ( add (now | unixEpoch ) -6 ) 7 ) }}#1abc9c{{end}}'
+    - '{{if not (mod ( add (now | unixEpoch ) -0 ) 7 ) }}#2ecc71{{end}}'
+    - '{{if not (mod ( add (now | unixEpoch ) -1 ) 7 ) }}#f1c40f{{end}}'
+    - '{{if not (mod ( add (now | unixEpoch ) -2 ) 7 ) }}#d35400{{end}}'
+    background_templates: 
+    - '{{if not (mod ( add (now | unixEpoch ) -3 ) 7 ) }}#2ecc71{{end}}'
+    - '{{if not (mod ( add (now | unixEpoch ) -4 ) 7 ) }}#1abc9c{{end}}'
+    - '{{if not (mod ( add (now | unixEpoch ) -5 ) 7 ) }}#8e44ad{{end}}'
+    - '{{if not (mod ( add (now | unixEpoch ) -6 ) 7 ) }}#d35400{{end}}'
+    - '{{if not (mod ( add (now | unixEpoch ) -0 ) 7 ) }}#3498db{{end}}'
+    - '{{if not (mod ( add (now | unixEpoch ) -1 ) 7 ) }}#E74C3C{{end}}'
+    - '{{if not (mod ( add (now | unixEpoch ) -2 ) 7 ) }}#f1c40f{{end}}'
   type: prompt

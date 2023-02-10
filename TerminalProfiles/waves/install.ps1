@@ -1,3 +1,6 @@
+$curr = pwd
+$mypath = $MyInvocation.MyCommand.Path
+cd $mypath.TrimEnd($MyInvocation.MyCommand.Name)
 
 # Setup defaults with correct location for image
 $defaults = Get-Content ".\defaults.json" -Raw | ConvertFrom-Json
@@ -10,10 +13,9 @@ $existingProperties = @(Get-Member -InputObject $settings.profiles.defaults -Mem
 
 foreach($property in $defaultProperties)
 {
-    Write-Debug $property.Name
     if($null -ne $existingProperties -and $existingProperties.contains($property.Name))
     {
-        $settings.profiles.defaults = $defaults.($property.Name)
+        $settings.profiles.defaults.($property.Name) = $defaults.($property.Name)
     }
     else 
     {
@@ -21,7 +23,6 @@ foreach($property in $defaultProperties)
     }
 }
 
-$settings.profiles.defaults.backgroundImage = $defaults.backgroundImage
-$settings.profiles.defaults.backgroundImageOpacity = $defaults.backgroundImageOpacity
+$settings | ConvertTo-Json -Depth 10 | Out-File "~\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json"
 
-$settings | ConvertTo-Json -Depth 4 | Out-File "~\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json"
+cd $curr
